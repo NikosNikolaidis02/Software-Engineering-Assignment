@@ -1,9 +1,12 @@
-# Grades Title
-    -[Table of Contents](#table-of-contents)
-        -[Purpose of Repository](#purpose-of-repository)
-        -[Description](#description)
-        -[Tools used to build the project](#tools-used-to-build-the-project)
-        -[Instructions for Users](#instructions-for-users)
+# Histogram of Grades
+    
+## Table of Contents
+
+-[Table of Contents](#table-of-contents)
+    -[Purpose of Repository](#purpose-of-repository)
+    -[Description](#description)
+    -[Tools used to build the project](#tools-used-to-build-the-project)
+    -[Instructions for Users](#instructions-for-users)
 
 
 
@@ -13,13 +16,24 @@ This is a private repository created for the second lab assignment of the corse 
 
 # Description
 
-The source code is uploaded on the "development" branch and the .xml & .java files are created on eclipse.
+This repository recieves as input a txt file which contains grades and creates a histogram for these grades.
 
 # Tools used to build the project
-This program is being built with Java <img src="photos/java_icon.jpg"> and with maven <img src="photos/maven_icon.jpg">
-
+This program is being built with:
+<ul>
+<li>Java</li>
+<img src="photos/java_icon.jpg">
+<li>Maven</li>
+<img src="photos/maven_icon.jpg">
+</ul>
 
 # Instructions for Users
-<ul>
-<li>To be completed</li>
-</ul>
+Firstly:
+```
+cd gradeshistogram
+```
+and then:
+```
+mvn package
+java -jar target/gradeshistogram-1.0-SNAPSHOT-jar-with-dependencies.jar gr.aueb.dmst.NikosNikolaidis02 <add-your-input-file-path>
+```
