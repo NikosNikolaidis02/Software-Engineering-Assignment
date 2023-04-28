@@ -8,27 +8,32 @@ import java.util.Scanner;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
-import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.XYBarRenderer;
 import org.jfree.data.statistics.HistogramDataset;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
-import org.jfree.data.xy.XYDataset;
 
-import javax.swing.*;
+/***
+ *
+ * @author NikosNikolaidis02 The purpose of this class is to demonstrate a histogram for a set of grades which is being
+ * given as an input
+ * @since April 2021
+ */
 
 public class HistogramGenerator {
 
     public static void main(String[] args) {
-        //String file = args[0];
-        String file = "grades.txt";
+        String file = args[0];
         double[] b = readGrades(file);
-        //System.out.println(Arrays.toString(b));
         generateGraph(b);
     }
+
+    /***
+     * Receives a filename(path) with grades. Reads the file and returns an array with all the grades
+     *
+     * @param filename the input path of the file
+     */
     public static double[] readGrades(String filename) {
         ArrayList<String> values = new ArrayList<String>();
         try {
@@ -45,19 +50,17 @@ public class HistogramGenerator {
         double[] a = new double[values.size()];
         for (int i=0; i<values.size(); i++) {
             a[i] = Double.parseDouble(values.get(i));
-            //System.out.println(a[i]);
         }
-
         return a;
     }
 
+    /***
+     * Receives the array with all the grades and generates a histogram.
+     *
+     * @param array the input path of the file
+     */
     public static void generateGraph(double[] array) {
         HistogramDataset setOfData = new HistogramDataset();
-		/*
-		for (int i = 0 ; i<grades.length; i++) {
-			values.add(i, grades[i]);
-		}
-		*/
         setOfData.addSeries("grades", array, 10);
 
         String title = "Grades' Histogram";
@@ -71,7 +74,7 @@ public class HistogramGenerator {
         org.jfree.chart.JFreeChart chart = ChartFactory.createHistogram(title, xAxisLabel, yAxisLabel,
                 setOfData, orientation, legend, tooltips, urls);
 
-        // Customize the chart
+
         XYPlot plot = (XYPlot) chart.getPlot();
         plot.setBackgroundPaint(Color.lightGray);
         XYBarRenderer renderer = (XYBarRenderer) plot.getRenderer();
@@ -81,9 +84,7 @@ public class HistogramGenerator {
         NumberAxis rangeAxis = (NumberAxis) plot.getRangeAxis();
         rangeAxis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
 
-        // Create a chart panel and add it to a frame
         ChartFrame frame = new ChartFrame("Histogram", chart);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
 
