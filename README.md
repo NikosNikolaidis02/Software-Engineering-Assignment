@@ -1,3 +1,4 @@
+https://github.com/NikosNikolaidis02/main/actions/workflows/maven.yml/badge.svg
 # Histogram of Grades
     
 ## Table of Contents
