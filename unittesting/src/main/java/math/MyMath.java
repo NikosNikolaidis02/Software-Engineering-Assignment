@@ -24,4 +24,23 @@ public class MyMath {
             return n * factorial(n-1);
         }
     }
+
+    public boolean isPrime(int n) {
+        if (n < 2) {
+            throw new IllegalArgumentException("The input value should be greater or equal than 2");
+        } else {
+            int counter = 0;
+            boolean prime = true;
+            for (int i = 1 ; i < n ; i++) {
+                if (n % i == 0) {
+                    counter ++;
+                    if (counter > 2) {
+                        prime = false;
+                        break;
+                    }
+                }
+            }
+            return prime;
+        }
+    }
 }
