@@ -33,3 +33,9 @@ jobs:
       
     - name: Run the Maven verify phase
       run: mvn --batch-mode --update-snapshots verify
+      
+    - name: Upload Jacoco coverage report
+      uses: actions/upload-artifact@v3
+      with:
+        name: jacoco-report
+        path: target/site/jacoco/
