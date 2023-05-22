@@ -30,4 +30,15 @@ public class MyMathTest {
         thrown.expectMessage("The value is higher than 12 or lower than 0");
         mathObj.factorial(14);
     }
+
+    @Test
+    public void test_checkPrimeLowerThanTwo () {
+        thrown.expectMessage("The input value should be greater or equal than 2");
+        mathObj.isPrime(1);
+    }
+
+    @Test
+    public void test_checkPrime () {
+        Assert.assertEquals(true, mathObj.isPrime(3));
+    }
 }
