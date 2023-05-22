@@ -41,19 +41,19 @@ public class ArithmeticOperationsTest {
 
     @Test
     public void test_checkNegativeX () {
-        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("x & y should be >= 0");
         arithmeticObject.multiply(-1 , 2);
     }
 
     @Test
     public void test_checkNegativeY () {
-        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("x & y should be >= 0");
         arithmeticObject.multiply(1 , -2);
     }
 
     @Test
     public void test_checkBothNegative () {
-        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("x & y should be >= 0");
         arithmeticObject.multiply(-1 , -2);
     }
 
@@ -64,7 +64,7 @@ public class ArithmeticOperationsTest {
 
     @Test
     public void test_multiplyElse() {
-        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("The product does not fit in an Integer variable");
         arithmeticObject.multiply(99999*99999 , 999999999*9999999);
     }
 }
