@@ -1,4 +1,5 @@
-https://github.com/NikosNikolaidis02/main/actions/workflows/maven.yml/badge.svg
+![Github Actions Badge](https://github.com/NikosNikolaidis02/seip_lab_2/actions/workflows/maven.yml/badge.svg)
+
 # Histogram of Grades
     
 ## Table of Contents
