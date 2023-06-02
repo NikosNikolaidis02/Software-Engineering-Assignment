@@ -17,6 +17,10 @@ import org.junit.rules.ExpectedException;
 public class ArithmeticOperationsTest {
 
     ArithmeticOperations arithmeticObject = new ArithmeticOperations();
+
+    /**
+     * Tests the case the user gives non-zero both numerator and denominator
+     */
     @Test
     public void test_DivideWithNonZeroDenominator() {
         double result = arithmeticObject.divide(100.0,10.0);
@@ -24,14 +28,11 @@ public class ArithmeticOperationsTest {
 
     }
 
+    /**
+     * Tests the case the user gives zero denominator of the function multiply
+     */
     @Test (expected = ArithmeticException.class)
     public void test_DivideWithZeroDenominator() {
-        /*try {
-            arithmeticObject.divide(1.0, 0.0);
-            Assert.fail("Exception not thrown for deviation with zero denominator");
-        } catch (ArithmeticException e) {
-            Assert.assertEquals("Cannot divide with zero", e.getMessage());
-        }*/
         arithmeticObject.divide(1.0, 0.0);
 
     }
@@ -39,29 +40,44 @@ public class ArithmeticOperationsTest {
     @Rule
     public ExpectedException thrown = ExpectedException.none();
 
+    /**
+     * Tests the case the user gives negative x of the function multiply
+     */
     @Test
     public void test_checkNegativeX () {
         thrown.expectMessage("x & y should be >= 0");
         arithmeticObject.multiply(-1 , 2);
     }
 
+    /**
+     * Tests the case the user gives negative y of the function multiply
+     */
     @Test
     public void test_checkNegativeY () {
         thrown.expectMessage("x & y should be >= 0");
         arithmeticObject.multiply(1 , -2);
     }
 
+    /**
+     * Tests the case the user gives negative both x and y of the function multiply
+     */
     @Test
     public void test_checkBothNegative () {
         thrown.expectMessage("x & y should be >= 0");
         arithmeticObject.multiply(-1 , -2);
     }
 
+    /**
+     * Tests the result of the function multiply
+     */
     @Test
     public void test_Multiply() {
         Assert.assertEquals(15, arithmeticObject.multiply(3,5));
     }
 
+    /**
+     * Tests the result of the function in case the input variable does not fit in an integer
+     */
     @Test
     public void test_multiplyElse() {
         thrown.expectMessage("The product does not fit in an Integer variable");
