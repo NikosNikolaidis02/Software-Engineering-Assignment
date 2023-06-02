@@ -39,7 +39,10 @@ and then:
 mvn package
 java -jar target/gradeshistogram-1.0-SNAPSHOT-jar-with-dependencies.jar gr.aueb.dmst.NikosNikolaidis02 <add-your-input-file-path>
 ```
+In order to test the code:
+```
+mvn test
+```
 
-#Testing README File
-
+# Testing README File
 [Link to Individual README](./unittesting/TestingREADME.md)

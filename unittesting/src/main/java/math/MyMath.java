@@ -34,7 +34,7 @@ public class MyMath {
             for (int i = 1 ; i < n ; i++) {
                 if (n % i == 0) {
                     counter ++;
-                    if (counter > 2) {
+                    if (counter >= 2) {
                         prime = false;
                         break;
                     }

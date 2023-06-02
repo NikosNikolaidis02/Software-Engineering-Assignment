@@ -7,11 +7,14 @@ import java.util.List;
 
 public class ArrayOperations {
     public int[] findPrimesInFile(FileIO fileIo, String filepath, MyMath myMath) {
-        int[] initial;
+        System.out.println(1);
         List<Integer> finalArray = new ArrayList<>();
-        initial = fileIo.readFile(filepath);
-        for (int i = 0 ; i < initial.length ; i++) {
+        System.out.println(1);
+        int[] initial = fileIo.readFile(filepath);
+        System.out.println(1);
+        for (int i = 0 ; i < initial.length - 1; i++) {
             if (myMath.isPrime(initial[i])) {
+                System.out.println(initial[i]);
                 finalArray.add(initial[i]);
             }
         }
