@@ -1,3 +1,5 @@
+![Github Actions Badge](https://github.com/NikosNikolaidis02/seip_lab_2/actions/workflows/actions.yml/badge.svg)
+
 # Histogram of Grades
     
 ## Table of Contents
@@ -37,3 +39,10 @@ and then:
 mvn package
 java -jar target/gradeshistogram-1.0-SNAPSHOT-jar-with-dependencies.jar gr.aueb.dmst.NikosNikolaidis02 <add-your-input-file-path>
 ```
+In order to test the code:
+```
+mvn test
+```
+
+# Testing README File
+[Link to Individual README](./unittesting/TestingREADME.md)
