@@ -21,7 +21,7 @@ public class SourceCodeAnalyzerTest {
 	private final static String TYPE_STRCOMP = "strcomp";
 	private final static String TEST_CLASS = "src/test/resources/TestClass.java";
 	private SourceCodeAnalyzer sca = new SourceCodeAnalyzer("local");
-	
+
 	
 	@Test
 	public void testCalculateRegexLOC() throws IOException {

@@ -43,11 +43,19 @@ public class SourceFileReader {
 		// read a locally stored file7858
 		if (type.contentEquals("local")) {
 			ListReader localListReader = localFileReaderFactory.createListReader();
-			return localListReader.readFileIntoList(filepath);
+			try {
+				return localListReader.readFileIntoList(filepath);
+			} catch (IOException e) {
+				throw new IllegalArgumentException("Input local file does not exist");
+			}
 		// read a file stored in the web
 		} else if (type.contentEquals("web")) {
 			ListReader webListReader = webFileReaderFactory.createListReader();
-			return webListReader.readFileIntoList(filepath);
+			try {
+				return webListReader.readFileIntoList(filepath);
+			} catch (IOException e) {
+				throw new IllegalArgumentException("Input web file does not exist");
+			}
 		} else {
 			return null;
 		}
@@ -66,11 +74,19 @@ public class SourceFileReader {
 		// read a locally stored file
 		if (type.contentEquals("local")) {
 			StringReader localStringReader = localFileReaderFactory.createStringReader();
-			return localStringReader.readFileIntoString(filepath);
+			try {
+				return localStringReader.readFileIntoString(filepath);
+			} catch (IOException e) {
+				throw new IllegalArgumentException("Input local file does not exist");
+			}
 		// read a file stored in the web
 		} else if (type.contentEquals("web")) {
 			StringReader webStringReader = webFileReaderFactory.createStringReader();
-			return webStringReader.readFileIntoString(filepath);
+			try {
+				return webStringReader.readFileIntoString(filepath);
+			} catch (IOException e) {
+				throw new IllegalArgumentException("Input web file does not exist");
+			}
 		} else {
 			return null;
 		}

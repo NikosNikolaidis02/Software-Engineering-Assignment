@@ -7,10 +7,14 @@ import java.nio.file.Files;
 import java.util.List;
 
 import static org.junit.Assert.*;
+
+import org.junit.Assert;
 import org.junit.BeforeClass;
+import org.junit.Rule;
 import org.junit.Test;
 
 import codeanalyzer.SourceFileReader;
+import org.junit.rules.ExpectedException;
 
 public class SourceFileReaderTest {
 	SourceFileReader sfr = null;
@@ -20,7 +24,10 @@ public class SourceFileReaderTest {
 	private final static String TYPE_LOCAL = "local";
 	private final static String TEST_CLASS_LOCAL = "src/test/resources/TestClass.java";
 	private final static String TEST_CLASS_WEB ="https://drive.google.com/uc?export=download&id=1z51FZXqPyun4oeB7ERFlOgfcoDfLLLhg";
-	
+
+	@Rule
+	public ExpectedException thrown = ExpectedException.none();
+
 	@BeforeClass
 	public static void setUp() throws IOException {
 		expectedList = Files.readAllLines(new File(TEST_CLASS_LOCAL).toPath(), Charset.defaultCharset());
@@ -86,4 +93,11 @@ public class SourceFileReaderTest {
 		
 		assertNull(actualString);
 	}
+//
+//	@Test
+//	public void testMissingLocalFile() {
+//		thrown.expectMessage("Input file does not exist");
+//		sfr = new SourceFileReader(TYPE_LOCAL);
+//		sfr.readFileIntoList("File.txt");
+//	}
 }
