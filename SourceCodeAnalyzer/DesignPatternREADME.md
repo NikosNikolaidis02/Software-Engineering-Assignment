@@ -30,8 +30,7 @@
 <h2>SourceCodeAnalyzer</h2>
 <p>I decided to design the function of analyzing a file with the Strategy Design for the following reasons:</p>
 <ul>
-	<li>It helps read a file from different sources(factories), eg. web or local files</li>
-	<li>We can independently create the final products and from which file was, eg. A List created by a Web file(eg. WebListReader)</li>
+	<li>Defines the classes of Source Code Analyzing, based on if we want string comparison or Regex analysis</li>
 </ul>
 <p>The classes the participate on this pattern are:</p>
 <ul>
@@ -46,8 +45,7 @@
 <h2>MetricsExporter</h2>
 <p>I decided to design the function of analyzing a file with the Strategy Design for the following reasons:</p>
 <ul>
-	<li>It helps read a file from different sources(factories), eg. web or local files</li>
-	<li>We can independently create the final products and from which file was, eg. A List created by a Web file(eg. WebListReader)</li>
+	<li>Defines the classes of Source Code Analyzing, based on if we want to export a CSV or a Json file</li>
 </ul>
 <p>The classes the participate on this pattern are:</p>
 <ul>
