@@ -17,6 +17,7 @@ public class RegexCodeAnalyzerStrategy implements CodeAnalyzerStrategy {
         }
 
         int sourceFileLength = sourceCode.split("\n").length;
+        System.out.println(sourceFileLength + " | " + nonCodeLinesCounter);
         int loc =  sourceFileLength - nonCodeLinesCounter;
 
         return loc;

@@ -26,27 +26,27 @@ public class SourceCodeAnalyzer {
 
 	public int calculateLOC(String filepath, String analyzerType) throws IOException {
 		if(analyzerType.equals("regex")) {
-			regexCodeAnalyzerStrategy.calculateLOC(filepath,fileReader);
+			return regexCodeAnalyzerStrategy.calculateLOC(filepath,fileReader);
 		} else if (analyzerType.equals("strcomp")) {
-			stringComparisonCodeAnalyzerStrategy.calculateLOC(filepath,fileReader);
+			return stringComparisonCodeAnalyzerStrategy.calculateLOC(filepath,fileReader);
 		}
 		return -1;
 	}
 
 	public int calculateNOM(String filepath, String analyzerType) throws IOException {
 		if(analyzerType.equals("regex")) {
-			regexCodeAnalyzerStrategy.calculateNOM(filepath,fileReader);
+			return regexCodeAnalyzerStrategy.calculateNOM(filepath,fileReader);
 		} else if (analyzerType.equals("strcomp")) {
-			stringComparisonCodeAnalyzerStrategy.calculateNOM(filepath,fileReader);
+			return stringComparisonCodeAnalyzerStrategy.calculateNOM(filepath,fileReader);
 		}
 		return -1;
 	}
 	
 	public int calculateNOC(String filepath, String analyzerType) throws IOException {
 		if(analyzerType.equals("regex")) {
-			regexCodeAnalyzerStrategy.calculateNOC(filepath, fileReader);
+			return regexCodeAnalyzerStrategy.calculateNOC(filepath, fileReader);
 		} else if (analyzerType.equals("strcomp")) {
-			stringComparisonCodeAnalyzerStrategy.calculateNOC(filepath,fileReader);
+			return stringComparisonCodeAnalyzerStrategy.calculateNOC(filepath,fileReader);
 		}
 		return -1;
 	}
