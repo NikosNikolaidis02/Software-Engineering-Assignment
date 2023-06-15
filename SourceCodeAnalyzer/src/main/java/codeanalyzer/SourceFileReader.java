@@ -21,15 +21,17 @@ public class SourceFileReader {
 	private String type;
 	private ListReader listReader;
 	private StringReader stringReader;
+	private LocalFileReaderFactory localFileReaderFactory;
+	private WebFileReaderFactory webFileReaderFactory;
 	
 	public SourceFileReader(String _type) {
 		this.type = _type;
-
+		this.localFileReaderFactory = new LocalFileReaderFactory();
+		this.webFileReaderFactory = new WebFileReaderFactory();
 	}
 
 	/**
 	 * Reads a file and returns its content in a List
-	 * @param fileReaderType the location of a file 
 	 * (<b>local</b> for locally stored files, 
 	 * <b>web</b> for files stored on the web). 
 	 * @param filepath the url of the file
@@ -38,36 +40,21 @@ public class SourceFileReader {
 	 * @throws IOException
 	 */
 	public List<String> readFileIntoList(String filepath) throws IOException {
-		// read a locally stored file
+		// read a locally stored file7858
 		if (type.contentEquals("local")) {
-			List<String> lines = new ArrayList<>();
-			File file = new File(filepath);
-			BufferedReader reader = new BufferedReader(new FileReader(file));
-			String line = null;
-			while ((line = reader.readLine()) != null) {
-				lines.add(line);
-			}
-			reader.close();
-			return lines;
+			ListReader localListReader = localFileReaderFactory.createListReader();
+			return localListReader.readFileIntoList(filepath);
 		// read a file stored in the web
 		} else if (type.contentEquals("web")) {
-			List<String> lines = new ArrayList<>();
-	        URL url = new URL(filepath);
-	        BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
-	        String line = null;
-	        while ((line = reader.readLine()) != null) {
-	        	lines.add(line);
-	        }
-	        reader.close();
-			return lines;
+			ListReader webListReader = webFileReaderFactory.createListReader();
+			return webListReader.readFileIntoList(filepath);
 		} else {
 			return null;
 		}
 	}
 	
 	/**
-	 * Reads a file and returns its content in a single String
-	 * @param fileReaderType the location of a file 
+	 * Reads a file and returns its content in a single Stringtt
 	 * (<b>local</b> for locally stored files, 
 	 * <b>web</b> for files stored on the web). 
 	 * @param filepath the url of the file
@@ -78,26 +65,12 @@ public class SourceFileReader {
 	public String readFileIntoString(String filepath) throws IOException {
 		// read a locally stored file
 		if (type.contentEquals("local")) {
-			StringBuilder sb = new StringBuilder();
-			File file = new File(filepath);
-			BufferedReader reader = new BufferedReader(new FileReader(file));
-			String line = null;
-			while ((line = reader.readLine()) != null) {
-				sb.append(line + "\n");
-			}
-			reader.close();
-			return sb.toString();
+			StringReader localStringReader = localFileReaderFactory.createStringReader();
+			return localStringReader.readFileIntoString(filepath);
 		// read a file stored in the web
 		} else if (type.contentEquals("web")) {
-			StringBuilder sb = new StringBuilder();
-	        URL url = new URL(filepath);
-	        BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
-	        String line = null;
-	        while ((line = reader.readLine()) != null) {
-	        	sb.append(line + "\n");
-	        }
-	        reader.close();
-			return sb.toString();
+			StringReader webStringReader = webFileReaderFactory.createStringReader();
+			return webStringReader.readFileIntoString(filepath);
 		} else {
 			return null;
 		}

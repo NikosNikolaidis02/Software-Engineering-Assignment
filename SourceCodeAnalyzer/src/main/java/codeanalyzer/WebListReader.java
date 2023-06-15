@@ -13,7 +13,7 @@ public class WebListReader implements ListReader {
         List<String> lines = new ArrayList<>();
         URL url = new URL(filepath);
         BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
-        String line;
+        String line = null;
         while ((line = reader.readLine()) != null) {
             lines.add(line);
         }
