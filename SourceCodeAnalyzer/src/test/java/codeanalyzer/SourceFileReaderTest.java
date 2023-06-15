@@ -25,8 +25,6 @@ public class SourceFileReaderTest {
 	private final static String TEST_CLASS_LOCAL = "src/test/resources/TestClass.java";
 	private final static String TEST_CLASS_WEB ="https://drive.google.com/uc?export=download&id=1z51FZXqPyun4oeB7ERFlOgfcoDfLLLhg";
 
-	@Rule
-	public ExpectedException thrown = ExpectedException.none();
 
 	@BeforeClass
 	public static void setUp() throws IOException {
@@ -93,11 +91,4 @@ public class SourceFileReaderTest {
 		
 		assertNull(actualString);
 	}
-//
-//	@Test
-//	public void testMissingLocalFile() {
-//		thrown.expectMessage("Input file does not exist");
-//		sfr = new SourceFileReader(TYPE_LOCAL);
-//		sfr.readFileIntoList("File.txt");
-//	}
 }
